@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+    <link rel="stylesheet" href="client/style.css" />
+    <link rel="shortcut icon" href="#" />
+    <title>TITLE</title>
+  </head>
+  <body>
+    <script id="recipes-template" type="text/x-handlebars-template">
+      {{#each recipe}}
+        <div class="recipe">
+          <img class="recipe-image" src="{{thumbnail}}" alt="pic" />
+          <p class="name">{{title}}</p>
+          <a href="{{href}}">To Video</a>
+          <div class="ingredients">
+            {{#each ingredients}}
+              <p class="ingredient">{{this}}</p>
+            {{/each}}
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <h1 id="headline">My recipes</h1>
+
+    <div id="search">
+      <div id="check-gluten">
+        <input type="checkbox" id="gluten-free" />
+        <label for="gluten-free"> gluten-free</label><br />
+      </div>
+      <div id="chack-dairy">
+        <input type="checkbox" id="dairy-free" />
+        <label for="dairy-free"> dairy-free</label><br />
+      </div>
+      <input id="ingredient" type="text" placeholder="ingredient here..." />
+      <button id="search-btn">Search</button>
+    </div>
+
+    <div id="container"></div>
+
+    <script src="client/build/model.js"></script>
+    <script src="client/build/view.js"></script>
+    <script src="client/build/controller.js"></script>
+  </body>
+</html>
